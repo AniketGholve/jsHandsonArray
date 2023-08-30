@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <pre>
+        Q1 "We are interested in retrieving only the students' names; all the names should be in caps.
+           ['JOHN', 'BABA', 'YAGA', 'WICK']"
+        Ans -> let names=studentRecords.map(val=>val.name.toUpperCase());
+            console.log(names)
+            output //<q1></q1>
+            toUpperCase will convert the the all characters in uppercase map is used to create new array 
+
+        Q2 "Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+        [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"
+        Ans -> let val=studentRecords.filter(val=>val.marks>50);
+        console.log(val)
+        output //<q2>
+        [{
+            "name": "John",
+            "id": 123,
+            "marks": 98
+        },
+        {
+            "name": "yaga",
+            "id": 200,
+            "marks": 60
+        },
+        {
+            "name": "Wick",
+            "id": 115,
+            "marks": 75
+        }]
+        </q2>
+        filter is used to filter the data accourding to the given condition
+
+
+        Q3 Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.
+        Ans -> let val=studentRecords.filter(val=>val.marks>50&& val.id>120 );
+        console.log(val)
+        output // <q3>[
+            {
+                "name": "John",
+                "id": 123,
+                "marks": 98
+            }
+        ]</q3>
+        filter is used to filter the data accourding to the given condition
+
+        Q4 Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.
+        Ans ->let val=studentRecords.reduce((acc, val)=>acc+val.marks,0);
+        console.log(val)
+        output // <q4></q4>
+        every value val.marks is stored in acc and its returned
+
+        Q5 This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.
+        let val=studentRecords.reduce((acc,iniVal)=>{if(iniVal.marks>50){
+            acc.push(iniVal.name);
+        }return acc;
+        },[]); 
+        console.log(val)
+        // output ['John', 'Wick']
+
+        reduce will search for the marks greater then 50 and push the name into the accumulator array 
+
+        Q6 This time we are required to print the sum of marks of the students with id > 120.
+        let val1 =studentRecords.reduce((acc,iniVal)=>{iniVal.id>120 && (acc+=iniVal.marks); return acc;},0)
+        console.log(val1)
+        
+        output //143
+        accumulator will check student id is greater than 120 and add all the students marks
+
+        Q7 This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.
+        let val2 =studentRecords.reduce((acc,iniVal)=>{
+            if(iniVal.marks<50){
+                iniVal.marks=iniVal.marks+15;
+            }
+            if(iniVal.marks>50){
+                acc+=iniVal.marks;
+            }
+            return acc;
+        },0)
+        output //<a id="q7"></a>
+        first if statement will change all values less than 50 by adding them 15
+        and second if will check the value is greater than  50 and it in accumulator and return sum value  
+
+        Q8 Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects. 
+
+        function Student(name,className,rollno){
+            this.name=name;
+            this.className=className;
+            this.rollno=rollno
+        }
+        let student1 = new Student('rohan', '10th', 101);
+        let student2 = new Student('shubham', '9th', 102);
+        let student3 = new Student('aniket', '11th', 103);
+        let student4 = new Student('rohit', '12th', 104);
+        let student5 = new Student('nikhil', '8th', 105);
+        let student6 = new Student('anup', '10th', 106);
+        
+        let studentArr=[student1,student2,student3,student4,student5,student6];
+        console.log(studentArr)
+
+        output // [
+        {
+            "name": "rohan",
+            "className": "10th",
+            "rollno": 101
+        },
+        {
+            "name": "shubham",
+            "className": "9th",
+            "rollno": 102
+        },
+        {
+            "name": "aniket",
+            "className": "11th",
+            "rollno": 103
+        },
+        {
+            "name": "rohit",
+            "className": "12th",
+            "rollno": 104
+        },
+        {
+            "name": "nikhil",
+            "className": "8th",
+            "rollno": 105
+        },
+        {
+            "name": "anup",
+            "className": "10th",
+            "rollno": 106
+        }
+    ]
+
+    function constructor will be able to assign the value to variable and with the help of new keyword new object is created
+    </pre>
+</body>
+<script src="./index.js"></script>
+
+</html>
